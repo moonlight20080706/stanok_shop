@@ -1,0 +1,27 @@
+import './category.css';
+
+export default function CategoryCard({ data, deleteCategory, editCategory, onSelectCategory }) {
+  if (!data) return null;
+  const { cat_name } = data;
+
+  return (
+    <div 
+      className="category-card"
+      onClick={() => onSelectCategory && onSelectCategory(data.id)} // ✅ kategoriya bosilganda Home.jsx ga signal yuboradi
+    >
+      <h3 style={}>{cat_name}</h3>
+      <div>
+        {editCategory && (
+          <button onClick={(e) => { e.stopPropagation(); editCategory(); }} className="edit-btn">
+            Tahrirlash
+          </button>
+        )}
+        {deleteCategory && (
+          <button onClick={(e) => { e.stopPropagation(); deleteCategory(); }} className="delete-btn">
+            O'chirish
+          </button>
+        )}
+      </div>
+    </div>
+  );
+}

@@ -1,0 +1,203 @@
+/* card.css */
+
+/* Umumiy link va karta */
+.card-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.product-card {
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(145deg, #fdf6fb, #f0f8ff); /* gradient fon */
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  cursor: pointer;
+  width: 280px;
+  margin: 1rem;
+}
+
+.product-card:hover {
+  transform: translateY(-8px) rotate(-1deg);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+}
+
+/* Media qismi */
+.pro-card-media {
+  position: relative;
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+  background-color: #e0f7fa; /* boshqa rang */
+}
+
+.pro-card-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+.pro-card-media:hover img {
+  transform: scale(1.1) rotate(2deg);
+}
+
+/* Admin tugmalari overlay */
+.admin-btns-overlay {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.admin-btns-overlay button {
+  background-color: #ff9ff3;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 8px;
+  color: #3b0a3a;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s, background-color 0.2s;
+}
+
+/* Like tugmasi overlay */
+.like-btn-overlay {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background-color: #fff9c4;
+  border: none;
+  border-radius: 50%;
+  padding: 10px;
+  font-size: 18px;
+  cursor: pointer;
+  color: #000;
+  transition: transform 0.3s, color 0.3s;
+}
+
+.like-btn-overlay:hover {
+  transform: scale(1.3) rotate(-10deg);
+}
+
+.like-btn-overlay.liked {
+  color: #d50000;
+  animation: heartPop 0.4s forwards;
+}
+
+@keyframes heartPop {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.6) rotate(10deg); }
+  100% { transform: scale(1.2); }
+}
+
+/* Price qismi */
+.price-card {
+  padding: 0.5rem 1rem;
+  background-color: #ffe0b2;
+  text-align: right;
+  font-weight: 700;
+  color: #e65100;
+  border-bottom: 1px solid #ffd180;
+  border-radius: 0 0 10px 10px;
+}
+
+/* Card body */
+.pro-card-body {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.pro-card-title {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #1cdad0;
+  margin: 0;
+}
+
+.pro-card-desc {
+  font-size: 1rem;
+  color: #555;
+  line-height: 1.4rem;
+}
+
+h3, h4 {
+  margin: 0;
+  font-weight: 500;
+  color: #333;
+}
+
+
+/* Footer qismi */
+.pro-card-foot {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.8rem 1rem;
+  border-top: 1px solid #eee;
+  background-color: #e8f5e9;
+  border-radius: 0 0 15px 15px;
+}
+
+.pro-card-date {
+  font-size: 0.85rem;
+  color: #666;
+}
+
+/* Savatchaga tugmasi animatsiyasi */
+.pro-card-btn {
+  background-color: #69f0ae;
+  color: #004d40;
+  border: none;
+  padding: 7px 14px;
+  border-radius: 12px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.pro-card-btn:hover {
+  background-color: #00e676;
+  transform: scale(1.1) rotate(-2deg);
+}
+
+.pro-card-btn:active {
+  transform: scale(0.95) rotate(0deg);
+}
+.read-more {
+  margin-left: 8px;
+  font-weight: 600;
+  color: #F2C300;
+  background: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  font-size: 0.95em;
+  text-transform: lowercase;
+}
+
+.read-more:focus {
+  outline: none;
+  text-decoration: underline;
+}
+
+
+
+/* Responsive */
+@media (max-width: 768px) {
+  .product-card {
+    width: 100%;
+    margin: 0.5rem 0;
+  }
+
+  .pro-card-media {
+    height: 180px;
+  }
+}

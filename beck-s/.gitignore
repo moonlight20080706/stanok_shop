@@ -1,0 +1,12 @@
+# Node modules
+node_modules/
+
+# Environment variables
+.env
+
+# Upload files (papka o‘zi qoladi, ichidagi rasmlar yuklanmaydi)
+uploads/*
+!uploads/.gitkeep
+
+# VS Code history folder
+.history/

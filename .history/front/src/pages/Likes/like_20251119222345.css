@@ -1,0 +1,115 @@
+/* Like sahifasi umumiy */
+.like-page {
+  width: 100%;
+  min-height: 80vh;
+  padding: 40px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 25px;
+  background: linear-gradient(135deg, #121212, #1c1c1c, #000);
+  background-size: 200% 200%;
+  animation: likeBgSoft 15s ease infinite;
+  color: #fff;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Bo'sh holat matni */
+.empty-like {
+  text-align: center;
+  font-size: 1.4rem;
+  margin-top: 40px;
+  color: #F2C300;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Sahifa sarlavhasi */
+.like-page h1 {
+  font-size: 2.3rem;
+  font-weight: 700;
+  color: var(--primary-color, #F2C300);
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+/* Like itemlar — cardga o‘xshash */
+.like-item {
+  width: 95%;
+  max-width: 650px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 20px 25px;
+  background: linear-gradient(145deg, #2a2a2a, #1a1a1a);
+  border-radius: 18px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.7);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.like-item:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 28px rgba(242, 195, 0, 0, 0.55);
+}
+
+/* Rasm */
+.like-item img {
+  width: 110px;
+  height: 110px;
+  object-fit: cover;
+  border-radius: 12px;
+  border: 1px solid #F2C300;
+}
+
+/* Matnlar */
+.like-item p {
+  flex: 1;
+  margin: 0 10px;
+  color: #fff;
+  font-size: 1.05rem;
+  font-weight: 500;
+}
+
+/* O‘chirish tugmasi */
+.like-item button {
+  padding: 9px 18px;
+  background: #F2C300;
+  color: #000;
+  font-weight: 700;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.like-item button:hover {
+  background: #00f7ff;
+  color: #000;
+  box-shadow: 0 0 14px #00f7ff;
+}
+
+/* Animatsiya */
+@keyframes likeBgSoft {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 50% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .like-item {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+  }
+
+  .like-item img {
+    width: 120px;
+    height: 120px;
+  }
+
+  .like-item p {
+    margin: 8px 0;
+  }
+}

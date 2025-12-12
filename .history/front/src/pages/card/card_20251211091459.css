@@ -1,0 +1,219 @@
+/* === LINK RESET === */
+.card-link {
+  text-decoration: none !important;
+  color: inherit !important;
+  display: block;
+}
+
+/* === PREMIUM 3D FLOATING CARD === */
+.product-card {
+  position: relative;
+  background: #000;
+  border-radius: 24px;
+  border: 1px solid rgba(242,195,0,0.25);
+  overflow: hidden;
+  transform-style: preserve-3d;
+  transition: transform 0.6s cubic-bezier(.25,.8,.25,1),
+              box-shadow 0.6s ease,
+              background 0.4s ease;
+  box-shadow: 0 12px 28px rgba(0,0,0,0.45);
+}
+
+/* === FLOAT + ROTATE + SHADOW HOVER === */
+.product-card:hover {
+  transform: rotateX(5deg) rotateY(-5deg) translateY(-12px) scale(1.04);
+  box-shadow: 0 30px 60px rgba(0,0,0,0.7),
+              0 0 25px rgba(242,195,0,0.25);
+  background: #0a0a0a;
+}
+
+/* === IMAGE AREA === */
+.pro-card-media {
+  width: 100%;
+  height: 240px;
+  overflow: hidden;
+  border-radius: 24px 24px 0 0;
+  transition: transform 0.6s ease;
+}
+
+.pro-card-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease, filter 0.6s ease;
+}
+
+/* IMAGE HOVER — subtle rotation + scale + shine */
+.product-card:hover .pro-card-media img {
+  transform: scale(1.15) rotate(1deg);
+  filter: brightness(1.05) contrast(1.1);
+}
+
+/* === LIKE BUTTON === */
+.like-btn-overlay {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  background: rgba(0,0,0,0.55);
+  padding: 12px;
+  border-radius: 50%;
+  border: 1px solid rgba(242,195,0,0.4);
+  cursor: pointer;
+  transition: transform 0.4s ease, background 0.4s ease, box-shadow 0.4s ease;
+  color: #F2C300;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.35);
+}
+
+.like-btn-overlay:hover {
+  transform: scale(1.25);
+  background: rgba(242,195,0,0.15);
+  box-shadow: 0 0 12px #F2C300, 0 0 18px #00F7FF;
+}
+
+.like-btn-overlay.liked {
+  background: #F2C300;
+  color: #000;
+  box-shadow: 0 0 20px #F2C300, 0 0 25px #00F7FF;
+}
+
+.like {
+  font-size: 22px;
+  transition: transform 0.3s ease;
+}
+
+.like-btn-overlay:hover .like {
+  transform: scale(1.2);
+}
+
+/* === PRICE TAG === */
+.price-card {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  background: rgba(0,0,0,0.65);
+  padding: 8px 16px;
+  border-radius: 16px;
+  color: #00F7FF;
+  font-weight: 700;
+  font-size: 16px;
+  border: 1px solid rgba(0,247,255,0.35);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.45);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+/* PRICE TAG HOVER — pulse effect */
+.product-card:hover .price-card {
+  transform: scale(1.07);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.6), 0 0 20px #00F7FF;
+}
+
+/* === CARD BODY === */
+.pro-card-body {
+  padding: 20px;
+}
+
+.pro-card-title {
+  font-size: 22px;
+  color: #F2C300;
+  font-weight: 700;
+  margin-bottom: 10px;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.6);
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+.product-card:hover .pro-card-title {
+  color: #00F7FF;
+  text-shadow: 0 2px 12px #F2C300, 0 0 8px #00F7FF;
+}
+
+/* DESCRIPTION */
+.pro-card-desc {
+  font-size: 15px;
+  line-height: 1.5;
+  color: #e0e0e0;
+  margin-bottom: 14px;
+  transition: color 0.3s ease;
+}
+
+.product-card:hover .pro-card-desc {
+  color: #f2f2c0;
+}
+
+.read-more {
+  background: none;
+  color: #00F7FF;
+  cursor: pointer;
+  border: none;
+  font-size: 15px;
+  margin-left: 6px;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.read-more:hover {
+  color: #F2C300;
+  transform: scale(1.1);
+  text-decoration: underline;
+}
+
+/* === CATEGORY TAG === */
+.active-category {
+  background: rgba(0,247,255,0.12);
+  border-left: 3px solid #00F7FF;
+  padding: 6px 10px;
+  border-radius: 6px;
+  color: #00F7FF;
+  font-size: 14px;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.product-card:hover .active-category {
+  background: rgba(242,195,0,0.12);
+  color: #F2C300;
+}
+
+/* === FOOTER === */
+.pro-card-foot {
+  padding: 18px;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.pro-card-date {
+  color: #999;
+  font-size: 14px;
+  transition: color 0.3s ease;
+}
+
+.product-card:hover .pro-card-date {
+  color: #f2f2c0;
+}
+
+/* === BUTTONS === */
+.pro-card-btn {
+  background: #00F7FF;
+  padding: 10px 20px;
+  border-radius: 12px;
+  border: none;
+  font-size: 15px;
+  font-weight: 600;
+  color: #000;
+  cursor: pointer;
+  transition: transform 0.35s ease, background 0.35s ease, box-shadow 0.35s ease;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.35), 0 0 15px rgba(0,247,255,0.4);
+}
+
+.pro-card-btn:hover {
+  transform: translateY(-5px) scale(1.08);
+  background: #F2C300;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.45), 0 0 25px #F2C300;
+}
+
+.pro-card-btn.in-cart {
+  background: #F2C300;
+  color: #000;
+  cursor: default;
+  transform: none !important;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.35);
+}

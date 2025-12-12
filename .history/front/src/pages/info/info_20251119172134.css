@@ -1,0 +1,63 @@
+/* .info-list{
+    width: 100%;
+    background-color: red;
+}
+.info-item-left, .info-item-right{
+    display: flex;
+    border: 10px solid #000;
+    width: 1400px;
+background-color: red;
+    justify-content: start;
+    gap: 50px;
+}
+.info-item-left img, .info-item-right img{
+    width: 600px ;
+    border-radius: 15px;
+}
+.info-item-left p, .info-item-right p{
+    font-size: 1.2rem;
+    line-height: 1.6;
+    color: #fff;
+    text-align: justify;
+    margin-top: 20px;
+    flex: 1;
+} */
+ .info-list {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+.info-item-left,
+.info-item-right {
+  display: flex;
+  gap: 50px;
+  width: 100%; /* Ekran bo‘yicha 100% */
+  background-color: #1e1e1e;
+  border-radius: 12px;
+  padding: 30px;
+  box-sizing: border-box;
+  align-items: flex-start;
+}
+
+
+/* Rasm hech qachon siljimaydi */
+.info-img {
+  width: 50%; /* kerak bo‘lsa o‘zgartir */
+  height: auto;
+  border-radius: 15px;
+  flex-shrink: 0;
+}
+
+/* Matn */
+.info-desc {
+  flex: 1;
+  color: #fff;
+  font-size: 1.3rem;
+  line-height: 1.6;
+  text-align: justify;
+  width: 50%;
+  word-break: break-word;
+
+}

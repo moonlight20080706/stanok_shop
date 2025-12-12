@@ -1,0 +1,103 @@
+/* Umumiy sahifa */
+.like-page {
+  width: 100%;
+  min-height: 100vh;
+  padding: 40px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 35px;
+
+  /* Glassmorphism + qora theme */
+  background: radial-gradient(circle at top, #1b1b1b, #0f0f0f, #000);
+  color: #fff;
+  font-family: "Poppins", sans-serif;
+}
+
+/* Sarlavha */
+.like-page h1 {
+  font-size: 2.5rem;
+  color: #F2C300;
+  letter-spacing: 2px;
+  text-shadow: 0 0 12px rgba(242, 195, 0, 0.5);
+}
+
+/* Like card — GLASS + NEON BORDER */
+.like-item {
+  width: 90%;
+  max-width: 700px;
+
+  padding: 20px;
+  border-radius: 20px;
+
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(12px);
+
+  border: 2px solid rgba(242, 195, 0, 0.25);
+  box-shadow: 0 0 18px rgba(0, 0, 0, 0.8);
+
+  display: flex;
+  align-items: center;
+  gap: 20px;
+
+  transition: all 0.3s ease;
+}
+
+/* Hover — neon yonishi */
+.like-item:hover {
+  border-color: #F2C300;
+  box-shadow: 0 0 20px rgba(242, 195, 0, 0.7);
+  transform: scale(1.02);
+}
+
+/* Rasmlar */
+.like-item img {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 15px;
+  border: 2px solid #F2C300;
+}
+
+/* Matnlar */
+.like-item p {
+  flex: 1;
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #f1f1f1;
+}
+
+/* Tugma – GOLD NEON BUTTON */
+.like-item button {
+  padding: 10px 18px;
+  background: transparent;
+  color: #F2C300;
+  border: 2px solid #F2C300;
+  border-radius: 10px;
+
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+
+  transition: all 0.3s ease;
+}
+
+.like-item button:hover {
+  background: #F2C300;
+  color: #000;
+  box-shadow: 0 0 15px #F2C300;
+}
+
+/* Responsiv */
+@media (max-width: 768px) {
+  .like-item {
+    flex-direction: column;
+    text-align: center;
+    padding: 25px;
+  }
+
+  .like-item img {
+    width: 140px;
+    height: 140px;
+  }
+}

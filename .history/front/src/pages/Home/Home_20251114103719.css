@@ -1,0 +1,188 @@
+/* Body umumiy fon */
+/* body {
+  background: linear-gradient(135deg, #F2C300, #222, #555, #1a1a1a);
+  background-size: 300% 300%;
+  animation: bgMove 12s ease infinite;
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+} */
+
+@keyframes bgMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Swiper */
+.mySwiper {
+  width: 80%;
+  height: 400px;
+  margin: 40px auto;
+  border-radius: 14px;
+  overflow: hidden;
+  position: relative;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: shadowAnim 12s ease infinite;
+
+}
+
+@keyframes shadowAnim {
+  0% { box-shadow: 0 0 10px #f2c300, 0 0 20px #777; }
+  50% { box-shadow: 0 0 25px #777, 0 0 40px #f2c300; }
+  100% { box-shadow: 0 0 10px #f2c300, 0 0 20px #777; }
+}
+
+.info-card {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.info-card img {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  border-radius: 14px;
+}
+
+.swipper-desc {
+  position: absolute;
+  /* bottom: 20px; */
+  top: 10px;
+  left: 10%;
+  transform: translateX(-50%);
+  color: #fff;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-size: 1.2rem;
+}
+
+/* Categories */
+.categories {
+  display: flex;
+  gap: 10px;
+  margin:40px auto 20px auto;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.categories button {
+  background: transparent;
+  border: 2px solid #F2C300;
+  padding: 8px 14px;
+  border-radius: 25px;
+  color: #F2C300;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.categories button:hover {
+  background: #F2C300;
+  color: #000;
+  box-shadow: 0 0 10px #F2C300;
+}
+
+/* Active category */
+.categories button.active {
+  background: #F2C300;
+  color: #000;
+  box-shadow: 0 0 12px #F2C300;
+}
+
+/* Cards grid */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 20px;
+  padding: 10px 40px;
+  margin-bottom: 40px;
+  top: 0;
+  margin: 100px 0;
+}
+
+/* Card styling */
+.card {
+  background: linear-gradient(145deg, #1c1c1c, #292929);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.6);
+  transition: all 0.4s ease;
+  position: relative;
+  padding: 10px;
+}
+
+.card img {
+  width: 100%;
+  border-radius: 10px;
+  border: 1px solid #F2C300;
+}
+
+.card h3 {
+  font-size: 1.1rem;
+  margin: 10px 0;
+  color: #F2C300;
+}
+
+.card p {
+  color: #ccc;
+  font-size: 0.9rem;
+  margin: 5px 0;
+}
+
+.card:hover {
+  transform: translateY(-10px) scale(1.03);
+  box-shadow: 0 8px 30px rgba(242, 195, 0, 0.5);
+}
+
+.card span {
+  display: block;
+  margin: 10px 0;
+  font-weight: bold;
+  color: #00f7ff;
+}
+
+.card button {
+  margin: 10px 0;
+  padding: 8px 14px;
+  border: none;
+  border-radius: 8px;
+  background: #F2C300;
+  color: #000;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.card button:hover {
+  background: #00f7ff;
+  color: #000;
+  box-shadow: 0 0 12px #00f7ff;
+}
+
+.expandedText {
+  max-height: none;
+  overflow: visible;
+  transition: max-height 0.3s ease;
+}
+
+@media (max-width: 768px) {
+  .mySwiper {
+    width: 95%;
+    height: 300px;
+  }
+
+  .info-card img {
+    height: 300px;
+  }
+
+  .cards {
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    padding: 10px;
+  }
+}

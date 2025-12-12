@@ -1,0 +1,163 @@
+/* === RESET LINK === */
+.card-link {
+  text-decoration: none !important;
+  color: inherit !important;
+  display: block;
+}
+
+/* === PRODUCT CARD === */
+.product-card {
+  position: relative;
+  background: #000;
+  border-radius: 20px;
+  border: 1px solid rgba(255,255,255,0.10);
+  overflow: hidden;
+  transition: border-color 0.35s ease, transform 0.35s ease, background 0.35s ease;
+}
+
+/* === SOFT ANIMATION ON HOVER (NO 3D) === */
+.product-card:hover {
+  border-color: #00F7FF;
+  background: #050505;
+  transform: translateY(-4px);
+}
+
+/* === CLEAN IMAGE AREA === */
+.pro-card-media {
+  width: 100%;
+  height: 240px;
+  overflow: hidden;
+  border-radius: 20px 20px 0 0;
+}
+
+.pro-card-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.45s ease;
+}
+
+/* === SOFT ZOOM (NO ROTATION) === */
+.product-card:hover .pro-card-media img {
+  transform: scale(1.06);
+}
+
+/* === LIKE BUTTON === */
+.like-btn-overlay {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  background: rgba(255,255,255,0.15);
+  backdrop-filter: blur(6px);
+  padding: 10px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,0.15);
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.like-btn-overlay:hover {
+  background: rgba(255,255,255,0.25);
+}
+
+.like-btn-overlay.liked {
+  background: #F2C300;
+  color: #000;
+}
+
+/* === PRICE TAG === */
+.price-card {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  background: rgba(0, 0, 0, 0.55);
+  padding: 8px 16px;
+  border-radius: 14px;
+  color: #F2C300;
+  font-weight: 700;
+  font-size: 16px;
+  border: 1px solid rgba(255,255,255,0.15);
+}
+
+/* === CARD BODY === */
+.pro-card-body {
+  padding: 20px;
+}
+
+.pro-card-title {
+  font-size: 22px;
+  color: #fff;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+/* === DESCRIPTION === */
+.pro-card-desc {
+  font-size: 15px;
+  line-height: 1.5;
+  color: #e0e0e0;
+  margin-bottom: 14px;
+}
+
+.read-more {
+  background: none;
+  color: #00F7FF;
+  cursor: pointer;
+  border: none;
+  font-size: 15px;
+  margin-left: 6px;
+}
+
+.read-more:hover {
+  text-decoration: underline;
+}
+
+/* === CATEGORY TAG === */
+.active-category {
+  background: rgba(0, 247, 255, 0.08);
+  border-left: 3px solid #00F7FF;
+  padding: 6px 10px;
+  border-radius: 6px;
+  color: #00F7FF;
+  font-size: 14px;
+}
+
+/* === FOOTER === */
+.pro-card-foot {
+  padding: 18px;
+  border-top: 1px solid rgba(255,255,255,0.08);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.pro-card-date {
+  color: #999;
+  font-size: 14px;
+}
+
+/* === MAIN BUTTON (CLEAN ANIMATION, NO 3D) === */
+.pro-card-btn {
+  background: #00F7FF;
+  padding: 10px 20px;
+  border-radius: 10px;
+  border: none;
+  font-size: 15px;
+  font-weight: 600;
+  color: #000;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.pro-card-btn:hover {
+  background: #F2C300;
+  transform: translateY(-3px);
+}
+
+/* === CARTED BUTTON === */
+.pro-card-btn.in-cart {
+  background: #F2C300;
+  color: #000;
+  cursor: default;
+  transform: none !important;
+}

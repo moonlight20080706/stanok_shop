@@ -1,0 +1,10 @@
+1. pul birligini qoshib qoyish kk
+2. card style 
+3. telegram bot
+
+
+<<<<<<<<<<<< DEDANA SORASH KK >>>>>>>>>>>>>>>>>
+1 dedadan sorash kkk chto cardan ochirilgan mahsulotlar tursinmi yoki ochib ketsinmi?
+2. agar mahsulot savatga solinsa btn savatda deb korsatsinmi yoki yoq
+6. narxlar dollarda bolsinmi yoki sumda yoki hamma birlikni yozsa boladigan qilib qoyaymi?
+

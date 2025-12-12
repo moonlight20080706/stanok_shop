@@ -1,0 +1,17 @@
+# Node modules
+node_modules/
+
+# Build folder
+dist/
+
+# VS Code history
+.history/
+
+# Node modules
+node_modules/
+
+# Build folder
+dist/
+
+# VS Code history
+.history/

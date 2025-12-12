@@ -1,0 +1,46 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Pacifico", cursive;
+}
+
+:root {
+  --primary-color:#222831;
+  --gray-color:#393e46;
+  --orange-color:#f96d00;
+  --white-color:#f2f2f2;
+}
+ body{
+  font-family: monospace;
+  /* border-color: var(--primary-color); */
+}
+/* 🌙 Scroll umumiy ko‘rinishi */
+::-webkit-scrollbar {
+  width: 10px;               /* vertikal scroll kengligi */
+  height: 8px;               /* gorizontal scroll balandligi */
+}
+
+/* 🔸 Scrollning orqa foni (yo‘li) */
+::-webkit-scrollbar-track {
+  background: #0b0b0b;       /* qora fon */
+  border-radius: 10px;
+}
+
+/* 🔹 Scrollning o‘zi (harakatlanadigan qismi) */
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #00b894, #006b5a);  /* yashil gradient */
+  border-radius: 10px;
+  box-shadow: inset 0 0 5px rgba(0, 255, 180, 0.5);
+}
+
+/* 🔆 Hover holatida scroll porlaydi */
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #00ffb0, #00b894);
+  box-shadow: 0 0 8px rgba(0, 255, 180, 0.6);
+}
+
+/* 🔘 Scrollning burchak qismi (gorizontal va vertikal kesishgan joyi) */
+::-webkit-scrollbar-corner {
+  background: #111;
+}

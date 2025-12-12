@@ -1,0 +1,183 @@
+/* card.css */
+
+/* Umumiy link va karta */
+.card-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.product-card {
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.2s, box-shadow 0.2s;
+  cursor: pointer;
+  width: 280px;
+  margin: 1rem;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Media qismi */
+.pro-card-media {
+  position: relative;
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+}
+
+.pro-card-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.3s;
+}
+
+.pro-card-media:hover img {
+  transform: scale(1.05);
+}
+
+/* Admin tugmalari overlay */
+.admin-btns-overlay {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.admin-btns-overlay button {
+  background-color: #ff4d4f;
+  border: none;
+  padding: 6px 10px;
+  border-radius: 6px;
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.admin-btns-overlay button:hover {
+  background-color: #ff7875;
+}
+
+/* Like tugmasi overlay */
+.like-btn-overlay {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: rgba(255, 255, 255, 0.9);
+  border: none;
+  border-radius: 50%;
+  padding: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: transform 0.2s, color 0.2s;
+  color: #ff4d4f;
+}
+
+.like-btn-overlay:hover {
+  transform: scale(1.2);
+}
+
+.like-btn-overlay.liked {
+  color: #e60023;
+}
+
+/* Price qismi */
+.price-card {
+  padding: 0.5rem 1rem;
+  background-color: #f5f5f5;
+  text-align: right;
+}
+
+.pro-price {
+  font-weight: 700;
+  color: #222;
+  font-size: 1.1rem;
+}
+
+/* Card body */
+.pro-card-body {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.pro-card-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #333;
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.pro-card-desc {
+  font-size: 0.95rem;
+  color: #666;
+  line-height: 1.3rem;
+}
+
+h3,
+h4 {
+  margin: 0;
+  font-weight: 500;
+  color: #444;
+}
+
+.active-category {
+  color: #1890ff;
+  font-weight: 600;
+}
+
+/* Footer qismi */
+.pro-card-foot {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.8rem 1rem;
+  border-top: 1px solid #eee;
+}
+
+.pro-card-date {
+  font-size: 0.85rem;
+  color: #999;
+}
+
+.pro-card-btn {
+  background-color: #1890ff;
+  color: #fff;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.2s;
+}
+
+.pro-card-btn:hover {
+  background-color: #40a9ff;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .product-card {
+    width: 100%;
+    margin: 0.5rem 0;
+  }
+
+  .pro-card-media {
+    height: 180px;
+  }
+}
