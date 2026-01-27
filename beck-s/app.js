@@ -10,10 +10,8 @@ console.log("JWT_TOKEN:", process.env.JWT_TOKEN);
 const admin = require('./routes/addmin.routes')
 const card = require('./routes/card.routes')
 const category = require('./routes/category.routes')
-const carts = require('./routes/carts.routes')
 const swipper = require('./routes/swipper.routes')
 const footer = require('./routes/footer.routes')
-const like = require('./routes/like.routes')
 const info = require('./routes/info.routes')
 const app = express();
 const path = require('path')
@@ -36,10 +34,8 @@ setupSwagger(app);
 app.use('/api', admin )
 app.use('/api', card )
 app.use('/api', category )
-app.use('/api', carts )
 app.use('/api', footer )
 app.use('/api', swipper )
-app.use('/api', like )
 app.use('/api', info )
 
 const PORT = process.env.PORT || 7070;

@@ -33,7 +33,7 @@
 }
 
 .product-right h1 {
-  font-size: 28px;
+  font-size: calc(70px);
   margin-bottom: 15px;
   color: #333;
 }

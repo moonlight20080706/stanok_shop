@@ -1,0 +1,215 @@
+/* Login container */
+.login-page {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(-45deg, #f0c419, #ebe840, #1a1a1a, #000000);
+  background-size: 400% 400%;
+  animation: loginBgWave 15s ease infinite;
+  font-family: 'Poppins', sans-serif;
+}
+
+@keyframes loginBgWave {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Form card */
+.login-card {
+  background: linear-gradient(145deg, #1c1c1c, #292929);
+  padding: 40px 30px;
+  border-radius: 15px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.7);
+  color: #fff;
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.login-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 30px rgba(242,195,0,0.5);
+}
+
+.login-card h1 {
+  font-size: 1.8rem;
+  color: #F2C300;
+  margin-bottom: 25px;
+  font-weight: 600;
+}
+
+/* Inputs */
+.login-card input {
+  width: 100%;
+  padding: 12px 15px;
+  margin-bottom: 15px;
+  border-radius: 8px;
+  border: none;
+  outline: none;
+  font-size: 1rem;
+  background: #111;
+  color: #fff;
+  transition: all 0.3s ease;
+}
+
+.login-card input::placeholder {
+  color: #888;
+}
+
+.login-card input:focus {
+  box-shadow: 0 0 0 2px #F2C300;
+  background: #222;
+}
+
+/* Buttons */
+.login-card button {
+  width: 100%;
+  padding: 12px;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #fff;
+  background: linear-gradient(120deg, #F2C300 20%, #000 80%);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.login-card button:hover {
+  background-position: 100% 50%;
+  box-shadow: 0 5px 15px rgba(242,195,0,0.6);
+}
+
+.login-card button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Super Admin vs Admin forms */
+.login-card .form-type {
+  margin-bottom: 20px;
+  font-size: 1rem;
+  color: #00f7ff;
+}
+/* =========================
+   LARGE DESKTOP (1400px+)
+========================= */
+@media (min-width: 1400px) {
+  .login-card {
+    max-width: 450px;
+    padding: 50px 40px;
+  }
+
+  .login-card h1 {
+    font-size: 2rem;
+  }
+
+  .login-card input,
+  .login-card button {
+    font-size: 1.05rem;
+  }
+}
+
+/* =========================
+   DESKTOP (1200px)
+========================= */
+@media (max-width: 1200px) {
+  .login-card {
+    max-width: 420px;
+  }
+}
+
+/* =========================
+   TABLET LANDSCAPE (992px)
+========================= */
+@media (max-width: 992px) {
+  .login-page {
+    padding: 20px;
+  }
+
+  .login-card {
+    max-width: 380px;
+  }
+}
+
+/* =========================
+   TABLET PORTRAIT (768px)
+========================= */
+@media (max-width: 768px) {
+  .login-card {
+    padding: 35px 25px;
+  }
+
+  .login-card h1 {
+    font-size: 1.6rem;
+  }
+
+  .login-card input {
+    padding: 11px 14px;
+  }
+
+  .login-card button {
+    padding: 11px;
+  }
+}
+
+/* =========================
+   MOBILE (576px)
+========================= */
+@media (max-width: 576px) {
+  .login-page {
+    padding: 15px;
+  }
+
+  .login-card {
+    max-width: 100%;
+    border-radius: 12px;
+  }
+
+  .login-card h1 {
+    font-size: 1.45rem;
+  }
+
+  .login-card .form-type {
+    font-size: 0.95rem;
+  }
+}
+
+/* =========================
+   SMALL MOBILE (400px)
+========================= */
+@media (max-width: 400px) {
+  .login-card {
+    padding: 25px 18px;
+  }
+
+  .login-card h1 {
+    font-size: 1.3rem;
+  }
+
+  .login-card input,
+  .login-card button {
+    font-size: 0.9rem;
+  }
+}
+
+/* =========================
+   EXTRA SMALL (360px)
+========================= */
+@media (max-width: 360px) {
+  .login-card h1 {
+    font-size: 1.2rem;
+  }
+
+  .login-card input {
+    padding: 10px 12px;
+  }
+
+  .login-card button {
+    padding: 10px;
+  }
+}

@@ -1,0 +1,96 @@
+/* Footer umumiy */
+/* .footer {
+  width: 100%;
+  background: linear-gradient(135deg, #1a1a1a, #222, #2a2a2a);
+  color: #fff;
+  padding: 30px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  font-family: 'Poppins', sans-serif;
+  text-align: center;
+  border-top: 2px solid #F2C300;
+  background-size: 200% 200%;
+  margin-top: 40px;
+  /* position: fixed; */
+  bottom: 0;
+  left: 0;
+  animation: footerSoft 15s ease infinite;
+} */
+
+@keyframes footerSoft {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 50% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Sarlavhalar */
+.footer h1 {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #F2C300;
+  margin-bottom: 8px;
+}
+
+/* Aloqa ma'lumotlari */
+.footer-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.footer-content ul {
+  list-style: none;
+  display: flex;
+  gap: 10px;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-content ul li {
+  margin: 4px 0;
+  font-size: 0.95rem;
+  color: #fff ;
+}
+
+.footer-content ul li a {
+  color: #00f7ff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-content ul li a:hover {
+  color: #F2C300;
+}
+.footer-content ul li span {
+  color: #fff;
+  font-weight: 500;
+}
+
+/* Footer link */
+.footer a {
+  color: #00f7ff;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.footer a:hover {
+  color: #F2C300;
+  text-decoration: underline;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .footer {
+    padding: 20px 15px;
+  }
+  .footer h1 {
+    font-size: 1.2rem;
+  }
+  .footer-content ul li {
+    font-size: 0.9rem;
+  }
+}
