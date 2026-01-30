@@ -186,7 +186,7 @@
 .remove-btn {
   width: 100%;
   padding: 10px 20px;
-  background: linear-gradient(135deg, #ffdd00 0%, #F2C300 100%);
+  background: linear-gradient(135deg, #ff4444 0%, #cc0000 100%);
   color: #fff;
   border: none;
   border-radius: 10px;
@@ -201,9 +201,9 @@
 }
 
 .remove-btn:hover {
-  background: linear-gradient(135deg, #F2C300 0%, #ffdd00 100%);
+  background: linear-gradient(135deg, #0%, #ff0000 100%);
   transform: scale(1.02);
-  box-shadow: 0 6px 20px rgba(242, 195, 0, 0.5);
+  box-shadow: 0 6px 20px rgba(255, 68, 68, 0.5);
 }
 
 /* --- Cart Summary --- */

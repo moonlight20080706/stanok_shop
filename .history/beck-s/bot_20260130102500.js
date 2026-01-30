@@ -61,32 +61,22 @@ async function getUSDRate() {
 }
 
 /* ================== ORDER FORMAT ================== */
-async function formatOrderText(products, usdRate) {
+function formatOrderText(products) {
   let totalUSD = 0;
-  let totalUZS = 0;
-  let text = `🛒 Yangi buyurtma\n\n`;
-
+  let text = `🛒 <b>Yangi buyurtma</b>\n\n`;
   for (const p of products) {
     const sum = p.price * p.quantity;
-    
-    // ✅ Currency tekshiramiz
-    if (p.currency === "$" || p.currency === "USD") {
-      totalUSD += sum;
-      totalUZS += sum * usdRate;
-    } else if (p.currency === "UZS" || p.currency === "so'm") {
-      totalUZS += sum;
-      totalUSD += sum / usdRate;
-    }
+    totalUSD += sum;
 
-    text += `📦 ${p.title}\n`;
+    text += `📦 <b>${p.title}</b>\n`;
     text += `${p.quantity} × ${p.price} ${p.currency}\n`;
     text += `= ${sum} ${p.currency}\n\n`;
   }
 
-  return { text, totalUSD, totalUZS };
+  return { text, totalUSD };
 }
 async function sendOrderSummaryToUser(userId, totalUSD, usdRate) {
-  const totalUZS = totalUSD * usdRate;
+  const totalUZS = totalUSD  usdRate;
 
   await bot.sendMessage(
     userId,
@@ -310,159 +300,35 @@ bot.on("message", async (msg) => {
 });
 
 /* ================== SEND-CART ================== */
-// app.post("/send-cart", async (req, res) => {
-//   try {
-//     const { telegramId, products } = req.body;
-//     const userId = Number(telegramId);
-
-//     if (!userId || !Array.isArray(products) || products.length === 0) {
-//       return res.json({ success: false, message: "Noto‘g‘ri ma’lumot" });
-//     }
-
-//     const usdRate = await getUSDRate();
-//     const { text, totalUSD } = formatOrderText(products);
-//     const totalUZS = totalUSD * usdRate;
-
-//     let threadId = sessions[userId];
-//     if (!threadId) {
-//       const user = await bot.getChat(userId);
-//       const topic = await bot.createForumTopic(
-//         ADMIN_GROUP_ID,
-//         safeTitle(`${user.first_name || "User"} | ${userId}`),
-//       );
-//       threadId = topic.message_thread_id;
-//       sessions[userId] = threadId;
-//       reverseSessions[threadId] = userId;
-
-//       await sendUserInfoToAdmin(userId, threadId);
-//     }
-
-//     // 1️⃣ Adminga buyurtma tafsiloti
-//     await bot.sendMessage(ADMIN_GROUP_ID, text, {
-//       parse_mode: "HTML",
-//       message_thread_id: threadId,
-//     });
-
-//     // 2️⃣ Userga VA Adminga mahsulot rasmlari va matni
-//     for (const p of products) {
-//       const img = await getImageSource(p.img);
-//       const caption = `📦 <b>${p.title}</b>
-// ${p.quantity} × ${p.price} ${p.currency}
-// = ${p.quantity * p.price} ${p.currency}`;
-
-//       // ===== USER =====
-//       if (img) {
-//         await bot.sendPhoto(userId, img.source, {
-//           caption,
-//           parse_mode: "HTML",
-//         });
-//       } else {
-//         await bot.sendMessage(userId, caption, { parse_mode: "HTML" });
-//       }
-
-//       // ===== ADMIN (TOPIC ICHIGA) =====
-//       if (img) {
-//         await bot.sendPhoto(ADMIN_GROUP_ID, img.source, {
-//           caption: `👤 <b>User ${userId}</b>\n\n${caption}`,
-//           parse_mode: "HTML",
-//           message_thread_id: threadId,
-//         });
-//       } else {
-//         await bot.sendMessage(
-//           ADMIN_GROUP_ID,
-//           `👤 <b>User ${userId}</b>\n\n${caption}`,
-//           {
-//             parse_mode: "HTML",
-//             message_thread_id: threadId,
-//           },
-//         );
-//       }
-//     }
-
-//     // 3️⃣ Yakuniy summa matnini yaratamiz
-//     const finalMessageForUser = `✅ <b>Buyurtma qabul qilindi</b>
-
-// 🧾 <b>Jami:</b>
-// 💵 $da: ${totalUSD.toFixed(2)} $
-// 💰 so'mda: ${Math.round(totalUZS).toLocaleString()} so'm
-
-// 📊 Kurs: 1$ = ${usdRate} so'm
-
-// 📞 Adminlar tez orada siz bilan bog‘lanadi.`;
-//     const finalMessageForAdmin = `
-// 🧾 <b>Jami:</b>
-// 💵 $da: ${totalUSD.toFixed(2)} $
-// 💰 so'mda: ${Math.round(totalUZS).toLocaleString()} so'm
-
-// 📊 Kurs: 1$ = ${usdRate} so'm`;
-//     // 4️⃣ Userga yuboramiz
-//     await bot.sendMessage(userId, finalMessageForUser, { parse_mode: "HTML" });
-
-//     // 5️⃣ Admin topic ichida ham yuboramiz
-//     await bot.sendMessage(
-//       ADMIN_GROUP_ID,
-//       `👤 <b>Buyurtma yakuniy summasi 
-//       </b>\n\n${finalMessageForAdmin}`,
-//       { parse_mode: "HTML", message_thread_id: threadId },
-//     );
-
-//     return res.json({ success: true });
-//   } catch (e) {
-//     console.error("❌ send-cart error:", e.message);
-//     return res.json({ success: false });
-//   }
-// });
-
-
-/* ================== SEND-CART ================== */
 app.post("/send-cart", async (req, res) => {
   try {
     const { telegramId, products } = req.body;
     const userId = Number(telegramId);
 
     if (!userId || !Array.isArray(products) || products.length === 0) {
-      return res.json({ success: false, message: "Noto'g'ri ma'lumot" });
+      return res.json({ success: false, message: "Noto‘g‘ri ma’lumot" });
     }
 
     const usdRate = await getUSDRate();
-
-    // ✅ SUMMA HISOBLASH (currency bilan)
-    let totalUSD = 0;
-    let totalUZS = 0;
-    let orderText = `🛒 Yangi buyurtma\n\n`;
-
-    for (const p of products) {
-      const sum = p.price * p.quantity;
-
-      // ✅ Currency tekshiramiz
-      if (p.currency === "$" || p.currency === "USD") {
-        totalUSD += sum;
-        totalUZS += sum * usdRate;
-      } else if (p.currency === "UZS" || p.currency === "so'm") {
-        totalUZS += sum;
-        totalUSD += sum / usdRate;
-      }
-
-      orderText += `📦 ${p.title}\n`;
-      orderText += `${p.quantity} × ${p.price} ${p.currency}\n`;
-      orderText += `= ${sum} ${p.currency}\n\n`;
-    }
+    const { text, totalUSD } = formatOrderText(products);
+    const totalUZS = totalUSD * usdRate;
 
     let threadId = sessions[userId];
     if (!threadId) {
       const user = await bot.getChat(userId);
       const topic = await bot.createForumTopic(
         ADMIN_GROUP_ID,
-        safeTitle(`${user.first_name || "User"} | ${userId}`)
+        safeTitle(`${user.first_name || "User"} | ${userId}`),
       );
       threadId = topic.message_thread_id;
       sessions[userId] = threadId;
       reverseSessions[threadId] = userId;
+
       await sendUserInfoToAdmin(userId, threadId);
     }
 
     // 1️⃣ Adminga buyurtma tafsiloti
-    await bot.sendMessage(ADMIN_GROUP_ID, orderText, {
+    await bot.sendMessage(ADMIN_GROUP_ID, text, {
       parse_mode: "HTML",
       message_thread_id: threadId,
     });
@@ -470,9 +336,9 @@ app.post("/send-cart", async (req, res) => {
     // 2️⃣ Userga VA Adminga mahsulot rasmlari va matni
     for (const p of products) {
       const img = await getImageSource(p.img);
-      const caption = `📦 ${p.title}\n${p.quantity} × ${p.price} ${p.currency}\n= ${
-        p.quantity * p.price
-      } ${p.currency}`;
+      const caption = `📦 <b>${p.title}</b>
+${p.quantity} × ${p.price} ${p.currency}
+= ${p.quantity * p.price} ${p.currency}`;
 
       // ===== USER =====
       if (img) {
@@ -481,58 +347,53 @@ app.post("/send-cart", async (req, res) => {
           parse_mode: "HTML",
         });
       } else {
-        await bot.sendMessage(userId, caption, {
-          parse_mode: "HTML",
-        });
+        await bot.sendMessage(userId, caption, { parse_mode: "HTML" });
       }
 
       // ===== ADMIN (TOPIC ICHIGA) =====
       if (img) {
         await bot.sendPhoto(ADMIN_GROUP_ID, img.source, {
-          caption: `👤 User ${userId}\n\n${caption}`,
+          caption: `👤 <b>User ${userId}</b>\n\n${caption}`,
           parse_mode: "HTML",
           message_thread_id: threadId,
         });
       } else {
         await bot.sendMessage(
           ADMIN_GROUP_ID,
-          `👤 User ${userId}\n\n${caption}`,
+          `👤 <b>User ${userId}</b>\n\n${caption}`,
           {
             parse_mode: "HTML",
             message_thread_id: threadId,
-          }
+          },
         );
       }
     }
 
     // 3️⃣ Yakuniy summa matnini yaratamiz
-    const finalMessageForUser = `✅ Buyurtma qabul qilindi
+    const finalMessageForUser = `✅ <b>Buyurtma qabul qilindi</b>
 
-🧾 Jami:
+🧾 <b>Jami:</b>
 💵 $da: ${totalUSD.toFixed(2)} $
 💰 so'mda: ${Math.round(totalUZS).toLocaleString()} so'm
+
 📊 Kurs: 1$ = ${usdRate} so'm
 
-📞 Adminlar tez orada siz bilan bog'lanadi.`;
-
-    const finalMessageForAdmin = `🧾 Jami:
+📞 Adminlar tez orada siz bilan bog‘lanadi.`;
+    const finalMessageForAdmin = `
+🧾 <b>Jami:</b>
 💵 $da: ${totalUSD.toFixed(2)} $
 💰 so'mda: ${Math.round(totalUZS).toLocaleString()} so'm
-📊 Kurs: 1$ = ${usdRate} so'm`;
 
+📊 Kurs: 1$ = ${usdRate} so'm`;
     // 4️⃣ Userga yuboramiz
-    await bot.sendMessage(userId, finalMessageForUser, {
-      parse_mode: "HTML",
-    });
+    await bot.sendMessage(userId, finalMessageForUser, { parse_mode: "HTML" });
 
     // 5️⃣ Admin topic ichida ham yuboramiz
     await bot.sendMessage(
       ADMIN_GROUP_ID,
-      `👤 Buyurtma yakuniy summasi\n\n${finalMessageForAdmin}`,
-      {
-        parse_mode: "HTML",
-        message_thread_id: threadId,
-      }
+      `👤 <b>Buyurtma yakuniy summasi 
+      </b>\n\n${finalMessageForAdmin}`,
+      { parse_mode: "HTML", message_thread_id: threadId },
     );
 
     return res.json({ success: true });
@@ -541,6 +402,7 @@ app.post("/send-cart", async (req, res) => {
     return res.json({ success: false });
   }
 });
+
 /* ================== START ================== */
 app.listen(PORT, () => {
   console.log(`🚀 Server ${PORT} portda ishlayapti`);
