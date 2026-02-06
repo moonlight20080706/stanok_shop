@@ -1,7 +1,7 @@
 import axios from "axios";
 
-export const BASE_URL = "http://localhost:7070/api"; 
-export const BASE_URL_IMG = "http://localhost:7070"; // rasmlar uchun
+export const BASE_URL = "https://db.techinfo.uz/api"; 
+export const BASE_URL_IMG = "https://db.techinfo.uz"; // rasmlar uchun
 
 export const api = axios.create({
   baseURL: BASE_URL,

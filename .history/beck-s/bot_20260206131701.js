@@ -493,7 +493,16 @@ app.post("/send-cart", async (req, res) => {
           parse_mode: "HTML",
           message_thread_id: threadId,
         });
-      } 
+      } else {
+        await bot.sendMessage(
+          ADMIN_GROUP_ID,
+          `👤 User ${userId}\n\n${caption}`,
+          {
+            parse_mode: "HTML",
+            message_thread_id: threadId,
+          }
+        );
+      }
     }
 
     // 3️⃣ Yakuniy summa matnini yaratamiz
